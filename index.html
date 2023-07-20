@@ -19,17 +19,18 @@
     <div class="tasks">
         <div class="tasks-container">
             <h1>Tasks for the Day</h1>
-            <form action="">
+            <form class="form">
 
                 <!-- session 1 -->
                 <div class="session">
                     <H2 class="session-title">Session 1</H2>
+                    <div id="task-info"></div>
                     <div class="task-container">
                         <div class="task">
-                            <input id="1-1" type="text" class="task-title" placeholder="Title">
-                            <textarea class="task-description" placeholder="Task description" cols="40"
-                                rows="2"></textarea>
-                            <button class="ok btn btn-primary" id="okBtn">OK</button>
+                            <input id="1-1" type="text" name="title-input" class="task-title" placeholder="Title">
+                            <textarea name="description-input" class="task-description" placeholder="Task description"
+                                cols="40" rows="2"></textarea>
+                            <button class="ok btn btn-primary" id="ok-button">OK</button>
                         </div>
                         <div class="task">
                             <input id="1-2" type="text" class="task-title" placeholder="Title">

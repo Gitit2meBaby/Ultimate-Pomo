@@ -90,7 +90,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // toggle section for tasks
-
     const sessions = document.getElementsByClassName('session');
 
     for (let i = 0; i < sessions.length; i++) {
@@ -98,9 +97,42 @@ document.addEventListener("DOMContentLoaded", function () {
         const taskContainer = sessions[i].querySelector('.task-container');
 
         sessionTitle.addEventListener('click', function () {
-            taskContainer.classList.toggle('active');
+            // remove active class from all task containers
+            for (let j = 0; j < sessions.length; j++) {
+                sessions[j].querySelector('.task-container').classList.remove('active');
+            }
+            // add active class to clicked task container
+            taskContainer.classList.add('active');
         });
     }
+
+    // get references to the title and description input fields
+    const titleInput = document.querySelector('.task-title');
+    const descriptionInput = document.querySelector('.task-description');
+
+    // get reference to the OK button
+    const okButton = document.querySelector('#ok-button');
+
+    // get reference to task-info div
+    const taskInfo = document.querySelector('#task-info');
+
+    // add click event listener to OK button
+    okButton.addEventListener('click', function () {
+        // get values entered by user
+        const title = titleInput.value;
+        const description = descriptionInput.value;
+        taskInfo.textContent = `${title} - ${description}`
+    });
+
+    const form = document.querySelector('.form');
+
+    // add submit event listener to form
+    form.addEventListener('submit', function (event) {
+        // prevent default form submission behavior
+        event.preventDefault();
+    });
+
+
 
     // display current task for the session
     function displayCurrentTaskTitle() {
@@ -142,42 +174,6 @@ document.addEventListener("DOMContentLoaded", function () {
             currentTaskTitle.innerText = "Take a break";
         }
     }
-
-
-    // // try and have the inputs saved in some form.
-
-    // // Get a reference to the OK button
-    // const okBtn = document.querySelector('#okBtn');
-
-    // // Add an event listener to the OK button
-    // okBtn.addEventListener('click', function () {
-    //     // Get the values of the inputs and textareas
-    //     let taskValues = [];
-    //     for (let i = 1; i <= 4; i++) {
-    //         for (let j = 1; j <= 4; j++) {
-    //             let taskTitle = document.querySelector(`#session-${i}-task-${j}-title`).value;
-    //             let taskDescription = document.querySelector(`#session-${i}-task-${j}-description`).value;
-    //             taskValues.push({ title: taskTitle, description: taskDescription });
-    //         }
-    //     }
-
-    //     // Save the values to local storage
-    //     localStorage.setItem('tasks', JSON.stringify(taskValues));
-    // });
-
-    // // Load saved data from local storage
-    // let savedTasks = JSON.parse(localStorage.getItem('tasks'));
-
-    // // Check if there is any saved data
-    // if (savedTasks) {
-    //     // Populate the inputs and textareas with the saved data
-    //     for (let i = 0; i < savedTasks.length; i++) {
-    //         let sessionNum = Math.floor(i / 4) + 1;
-    //         let taskNum = (i % 4) + 1;
-    //         document.querySelector(`#session-${sessionNum}-task-${taskNum}-title`).value = savedTasks[i].title;
-    //         document.querySelector(`#session-${sessionNum}-task-${taskNum}-description`).value = savedTasks[i].description;
-    //     }
-
 
 
 });
