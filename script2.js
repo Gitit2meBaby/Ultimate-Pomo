@@ -214,17 +214,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Validate the task title
         if (title === '') {
-            descriptionInputs[index].innerHTML = "! Please provide a task title atleast... don\'t waste 25min of your life";
-            descriptionInputs[index].classList.add('error-message');
+            descriptionInputs[index].innerHTML = '! Please provide a task title atleast... don\'t waste 25min of your life';
 
             // Set a timer to remove the error message after 3 seconds
             setTimeout(function () {
-                descriptionInputs[index].innerHTML = '';
+                descriptionInputs[index].innerHTML = ''; // Remove the error message
+                descriptionInputs[index].setAttribute('placeholder', originalPlaceholder); // Restore the original placeholder
             }, 3000);
 
             return;
         }
-
 
 
         // Determine the session number and add the task to the corresponding container
@@ -356,30 +355,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Function to adjust the number of rows for the description textarea based on screen size
-    function adjustTextareaRows() {
-        const descriptionInputs = document.querySelectorAll('.description-input');
-        descriptionInputs.forEach(textarea => {
-            if (window.innerWidth <= 767) {
-                textarea.rows = 1; // Set the number of rows to 1 for smaller screens
-            } else {
-                textarea.rows = 2; // Set the number of rows to 2 for larger screens
-            }
-        });
-    }
-
-    // Initial adjustment when the page loads
-    adjustTextareaRows();
-
-    // Add an event listener to adjust the rows when the window is resized
-    window.addEventListener('resize', adjustTextareaRows);
-
-    // Initial adjustment when the page loads
-    adjustTextareaRows();
-
-    // Add an event listener to adjust the rows when the window is resized
-    window.addEventListener('resize', adjustTextareaRows);
-
     //********** MODAL STUFF ************/
 
     // modal info array
@@ -390,21 +365,16 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             id: 2,
-            text: 'A minimalist, task organiser, divided into 25 minute pomodoro technique intervals, enter your tasks for the day and add a description if you would like.',
+            text: 'A minimalist, task organiser, divided into 25 minute pomodoro technique intervals, enter your tasks for the day, the description can be seen if you hover over the task title, but the task cant be changed once commited.',
         }, {
             id: 3,
-            text: 'Description can be seen if you hover over the task title, but the task cant be changed once commited... You got this.',
+            text: 'Each session lasts for 2.5hrs, individual task are 25 minutes in length, your current task is displayed above the timer',
         },
         {
             id: 4,
-            text: 'Each session lasts for 2.5hrs, individual task are broken with a 5 minute interval to regain focus, you should only worry about the task displayed above the timer',
-        },
-        {
-            id: 5,
             text: 'Assign tasks at the end of each session as either completed or not, press the "do it later" button to assign your incomplete tasks to another session',
         },
     ];
-
 
     // Define a variable to keep track of the current info index
     let currentInfoIndex = 0;
@@ -446,8 +416,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-
+// modal info array
+const info = [
+    {
+        id: 1,
+        text: "Decision fatigue breeds procrastination, regular breaks lead to clarity of mind and heightened focus. Keep it Simple.. Sexy.",
+    },
+    {
+        id: 2,
+        text: 'A minimalist, task organiser, divided into 25 minute pomodoro technique intervals, enter your tasks for the day and add a description if you would like.',
+    }, {
+        id: 3,
+        text: 'Description can be seen if you hover over the task title, but the task cant be changed once commited... You got this.',
+    },
+    {
+        id: 4,
+        text: 'Each session lasts for 2.5hrs, individual task are broken with a 5 minute interval to regain focus, you should only worry about the task displayed above the timer',
+    },
+    {
+        id: 5,
+        text: 'Assign tasks at the end of each session as either completed or not, press the "do it later" button to assign your incomplete tasks to another session',
+    },
+];
 
 
 const kSpan = document.getElementById('keep');

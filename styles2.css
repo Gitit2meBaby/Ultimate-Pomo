@@ -29,7 +29,7 @@ span#sexy:hover {
     }
 
     50% {
-        transform: scale(.5);
+        transform: scale(1.2);
     }
 
     100% {
@@ -37,50 +37,23 @@ span#sexy:hover {
     }
 }
 
-@media (max-width: 768px) {
-
-    span#keep:hover,
-    span#it:hover,
-    span#simple:hover,
-    span#sexy:hover {
-        /* Remove the animation and any other styles for smaller screens */
-        animation: none !important;
-        transform: none !important;
-    }
-}
-
 #kiss-life {
     font-family: 'Raleway', sans-serif;
     color: white;
     font-weight: 900;
-    font-size: 9rem;
+    font-size: 140px;
     text-align: center;
     display: inline-block;
     /* Add this line to prevent jittery effect */
     transform-origin: center;
 }
 
-@media (max-width: 768px) {
-    #kiss-life {
-        font-size: 5rem;
-        letter-spacing: .8;
-    }
-}
-
 .fullstop {
     font-family: 'Raleway', sans-serif;
     color: white;
     font-weight: 900;
-    font-size: 3rem;
+    font-size: 50px;
 }
-
-@media (max-width: 768px) {
-    .fullstop {
-        font-size: 1rem;
-
-    }
-}
-
 
 .meta-container {
     margin: auto;
@@ -94,38 +67,6 @@ span#sexy:hover {
     background-color: transparent;
     color: white;
     font-family: 'Raleway', sans-serif;
-    padding: 5px 10px;
-}
-
-.ok-button:hover {
-    animation: growPulse 1s infinite;
-}
-
-@keyframes growPulse {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.1);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-@media (max-width: 768px) {
-    .ok-button {
-        margin-bottom: 40px;
-        margin-top: 10px;
-    }
-}
-
-
-.error-message {
-    font-style: italic;
-    color: gray;
 }
 
 .task {
@@ -135,36 +76,12 @@ span#sexy:hover {
     flex-direction: row;
 }
 
-.task-list-compiled input[type="radio"] {
-    margin: 0 10px;
-}
-
-.task-list-compiled div {
-    text-align: center;
-
-}
-
-.task-list-compiled h1 {
-    font-size: 1.4rem;
-    opacity: .5;
-    font-family: raleway;
-    text-align: center;
-}
-
-.task-list-compiled p {
-    font-style: italic;
-    text-align: center;
-}
-
-
 @media (max-width: 768px) {
     .task {
         flex-direction: column;
         /* Stack the divs vertically on small screens */
     }
 }
-
-
 
 .tasks {
     margin: auto;
@@ -209,11 +126,6 @@ span#sexy:hover {
     .task-list-compiled {
         flex-direction: column;
         /* Stack the divs vertically on small screens */
-    }
-
-    .task-list-compiled input {
-        padding: 0;
-        margin: 0;
     }
 }
 
@@ -262,13 +174,6 @@ span#sexy:hover {
     align-items: center;
     padding: 10px 0;
     gap: 40px;
-}
-
-@media (max-width: 768px) {
-    .task {
-        padding: 0;
-        gap: 10px;
-    }
 }
 
 .task-title {
@@ -356,27 +261,10 @@ input {
     border-left: none;
     border-right: none;
     border-radius: 5px;
-    border-color: gray;
+    border-color: white;
     background-color: transparent;
     color: white;
     font-family: 'Raleway', sans-serif;
-}
-
-input::placeholder {
-    text-indent: 10px;
-    padding-bottom: 5px;
-}
-
-@media (max-width: 768px) {
-    input::placeholder {
-        text-align: center;
-        text-indent: 0;
-    }
-}
-
-input:focus {
-    border-color: red;
-    outline: none;
 }
 
 textarea {
@@ -384,39 +272,11 @@ textarea {
     border-left: none;
     border-right: none;
     border-radius: 5px;
-    border-color: gray;
+    border-color: white;
     color: white;
     background-color: transparent;
     font-family: 'Raleway', sans-serif;
 }
-
-@media (max-width: 768px) {
-    textarea {
-        padding: 10px;
-    }
-}
-
-@media (max-width: 768px) {
-    textarea::placeholder {
-        text-indent: 10px;
-
-    }
-}
-
-textarea:focus {
-    border-color: red;
-    outline: none;
-}
-
-textarea::placeholder {
-    text-indent: 10px;
-}
-
-textarea:focus::placeholder {
-    font-style: italic;
-    font-size: 14px;
-}
-
 
 .hidden {
     display: none;
@@ -473,19 +333,16 @@ iframe {
 #open-btn {
     width: 60px;
     height: 40px;
-
     font-size: 1rem;
     background: transparent;
     color: gray;
     text-transform: uppercase;
-    border: solid 1px gray;
+    border: solid 1px white;
     border-radius: 5px;
-    padding: 3px;
+    padding: 5px;
     box-shadow: 0 0 3px black;
     transition: .5s;
     font-family: 'Raleway', sans-serif;
-
-    align-items: center;
 }
 
 #open-btn:hover {
